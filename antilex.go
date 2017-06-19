@@ -20,8 +20,7 @@ func reverse(p []int, n int) {
 // Antilex prints out all permutations in anti-lexicographical order
 func Antilex(n int) chan []int {
 	if n < 1 || n > MaxLen {
-		err := fmt.Errorf("Antilex: invalid argument: %d", n)
-		fmt.Println(err)
+		fmt.Fprintf(os.Stderr, "Antilex: invalid argument: %d", n)
 		os.Exit(1)
 	}
 	ch := make(chan []int)
