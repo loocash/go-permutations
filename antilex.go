@@ -11,13 +11,7 @@ const (
 	MaxLen = 15
 )
 
-func reverse(p []int, n int) {
-	for i := 0; i < n/2; i++ {
-		p[i], p[n-i-1] = p[n-i-1], p[i]
-	}
-}
-
-// Antilex prints out all permutations in anti-lexicographical order
+// Antilex generates all permutations in anti-lexicographical order
 func Antilex(n int) chan []int {
 	if n < 1 || n > MaxLen {
 		fmt.Fprintf(os.Stderr, "Antilex: invalid argument: %d", n)
