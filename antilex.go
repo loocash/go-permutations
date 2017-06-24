@@ -1,4 +1,3 @@
-// Package permutation generates permutations
 package permutation
 
 import (
@@ -34,12 +33,12 @@ func perm(p []int, n int, ch chan []int) {
 		cpy := make([]int, len(p))
 		copy(cpy, p)
 		ch <- cpy
-	} else {
+		return
+	}
+	perm(p, n-1, ch)
+	for i := n - 2; i >= 0; i-- {
+		reverse(p, n-1)
+		p[i], p[n-1] = p[n-1], p[i]
 		perm(p, n-1, ch)
-		for i := n - 2; i >= 0; i-- {
-			reverse(p, n-1)
-			p[i], p[n-1] = p[n-1], p[i]
-			perm(p, n-1, ch)
-		}
 	}
 }

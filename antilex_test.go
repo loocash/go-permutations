@@ -1,8 +1,7 @@
 package permutation
 
 import "testing"
-
-
+import "fmt"
 
 func TestPermutationsLength(t *testing.T) {
 	n := 3
@@ -34,4 +33,17 @@ func TestDistribution(t *testing.T) {
 			}
 		}
 	}
+}
+
+func ExampleAntilex() {
+	for p := range Antilex(3) {
+		fmt.Println(p)
+	}
+	// Output:
+	//[1 2 3]
+	//[2 1 3]
+	//[1 3 2]
+	//[3 1 2]
+	//[2 3 1]
+	//[3 2 1]
 }
